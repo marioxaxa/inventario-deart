@@ -21,7 +21,7 @@ const theme = createTheme(themeOptions);
 type Props = { children: ReactElement | null };
 
 function ThemeContext({ children }: Props) {
-    return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+    return <ThemeProvider theme={theme} >{children}</ThemeProvider>;
 }
 
 export default ThemeContext;

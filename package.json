@@ -12,12 +12,13 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.1.0",
-    "@mui/icons-material": "^6.1.6",
-    "@mui/material": "^6.1.6",
+    "@mui/icons-material": "^6.1.7",
+    "@mui/material": "^6.1.7",
+    "@mui/x-data-grid": "^7.22.2",
     "next": "15.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-hook-form": "^7.53.1"
+    "react-hook-form": "^7.53.2"
   },
   "devDependencies": {
     "@hookform/devtools": "^4.3.1",
