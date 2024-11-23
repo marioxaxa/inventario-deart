@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react'
-import {  Box, Button, FormControl, TextField, InputAdornment, InputLabel, Select, MenuItem } from '@mui/material';
+import {  Box, Button, FormControl, TextField, InputAdornment, InputLabel, Select, MenuItem, Container } from '@mui/material';
 import { register } from 'module'
 import { Option } from '@mui/base/Option';
 import { OptionGroup } from '@mui/base/OptionGroup';
@@ -10,6 +10,7 @@ import { SelectChangeEvent } from "@mui/material";
 const Formulario = () => {
 
   //const [tombo, setTombo] = useState("");
+  //const [tipo, setTipo] = useState("");
   //const [descricao, setDescricao] = useState("");
   //const [obs, setObs] = useState("");
   const [selecao, setSelecao] = useState("");
@@ -30,20 +31,21 @@ const Formulario = () => {
   const classData = ["20", "30", "A", "B"];
 
   return(
-    <div>
+    <Container component="main">
 
       <form onSubmit={handleSubmit}>
 
         <Box
           sx={{
-            marginX: 20,
+            marginX: "auto",
+            width: "600px",
+            maxWidth: "90%",
+            padding: 4,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
           }}
         >
           <TextField
-            id="outlined-start-adornment"
             //value = {tombo}
             InputProps={{
               startAdornment: <InputAdornment position="start">Tombo</InputAdornment>,
@@ -53,26 +55,32 @@ const Formulario = () => {
             //error={tomboError}
             //helperText={tomboError ? "Tombo é obrigatório" : ""}
           />
+
+          <TextField 
+            margin = "normal"
+            fullWidth
+            //value = {tipo}
+            label = "Tipo"
+          />
+          
           <TextField 
             margin = "normal"
             fullWidth
             //value = {descricao}
             label = "Descrição"
           />
-          <TextField 
-            margin = "normal"
-            fullWidth
-            //value = {obs}
-            label = "Obs"
-          />
-
+          
         
-          <InputLabel id="sala-select-label" sx={{position: 'left',}}>Sala Atual</InputLabel>
+          <InputLabel id="sala-select-label" sx={{position: 'left', mb: 1}}>Sala Atual</InputLabel>
           <Select
             labelId="sala-select-label"
             value={selecao}
             onChange={SelectChange}
-            sx={{margin: "normal",}}
+            sx={{
+              margin: "auto", 
+              width: "100%",
+              //textAlign: 'center',
+            }}
             displayEmpty
           >
             <MenuItem value="" disabled>
@@ -86,18 +94,58 @@ const Formulario = () => {
             ))}   
 
           </Select>
+          
 
-          <Button
-            type = "submit"
-            variant='contained'
-            sx={{ mt: 3, mb: 2 }}
+          <InputLabel id="obs-label" sx={{position: 'left', mb: -1, mt: 1}}>Obs</InputLabel>
+          <TextField 
+            aria-labelledby="obs-label"
+            margin = "normal"
+            fullWidth
+            //value = {obs}
+            label = "Obs"
+          />
+          
+          <Box
+            sx={{
+              mt: 4, mb: 2,
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              width: '100%',
+            }}
           >
-            Inserir
-          </Button>
+            <Button
+              type = "reset"
+              variant='contained'
+              sx={{
+                backgroundColor: "#f6685e",
+                '&:hover': {
+                  backgroundColor: "#f44336",
+                },
+              }}
+            >
+              Limpar
+            </Button>
+
+            <Button
+              type = "submit"
+              variant='contained'
+              color='secondary'
+              sx={{
+                '&:hover':{
+                  backgroundColor: '#00e676',
+                },
+              }}
+            >
+              Inserir
+            </Button>
+          </Box>
+          
         </Box>
 
       </form>
-    </div>
+    </Container>
   )
 }
 
