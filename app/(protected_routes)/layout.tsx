@@ -3,7 +3,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Avatar, Paper, Stack } from "@mui/material";
 import Image from "next/image";
 
@@ -56,7 +56,24 @@ export default function Layout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const [value, setValue] = React.useState(0);
+    const path = usePathname();
+    const getTabValue = () => {
+        console.log(path);
+
+        if (path.includes("/editar")) {
+            return 0;
+        } else if (path.includes("/busca")) {
+            return 1;
+        } else if (path.includes("/historico")) {
+            return 2;
+        }
+    };
+
+    const [value, setValue] = React.useState(getTabValue());
+
+    React.useEffect(() => {
+        setValue(getTabValue());
+    }, [path]);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         if (
