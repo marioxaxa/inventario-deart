@@ -46,10 +46,11 @@ const Formulario = () => {
           }}
         >
           <TextField
-            //value = {tombo}
-            InputProps={{
+            label = "Tombo"
+            /*InputProps={{
               startAdornment: <InputAdornment position="start">Tombo</InputAdornment>,
-            }}
+            }}*/
+            //value = {tombo}
             margin="normal"
             fullWidth
             //error={tomboError}
@@ -71,13 +72,13 @@ const Formulario = () => {
           />
           
         
-          <InputLabel id="sala-select-label" sx={{position: 'left', mb: 1}}>Sala Atual</InputLabel>
+          {/*<InputLabel id="sala-select-label" sx={{position: 'left', mb: 1}}>Sala Atual</InputLabel>*/}
           <Select
             labelId="sala-select-label"
             value={selecao}
             onChange={SelectChange}
             sx={{
-              margin: "auto", 
+              margin: "normal", 
               width: "100%",
               //textAlign: 'center',
             }}
@@ -96,9 +97,7 @@ const Formulario = () => {
           </Select>
           
 
-          <InputLabel id="obs-label" sx={{position: 'left', mb: -1, mt: 1}}>Obs</InputLabel>
           <TextField 
-            aria-labelledby="obs-label"
             margin = "normal"
             fullWidth
             //value = {obs}
